@@ -1,6 +1,3 @@
-# Не могу найти, почему при выигрыше компьютера он печатает кучу ходов,
-# а потом только завершает игру...
-
 from random import randint
 
 
@@ -112,10 +109,10 @@ class Board:
 
     def shot(self, dot):
         if self.out_field(dot):
-           raise BoardOutException()
+            raise BoardOutException()
 
         elif dot in self.busy:
-           raise AlreadyShotException()
+            raise AlreadyShotException()
 
         self.busy.append(dot)
 
@@ -186,7 +183,7 @@ class Game:
         self.size = size
         user_board = self.random_board()
         ai_board = self.random_board()
-        ai_board.hid = False ################# !!!
+        ai_board.hid = True
 
         self.ai = AI(ai_board, user_board)
         self.us = User(user_board, ai_board)
